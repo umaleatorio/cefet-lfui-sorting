@@ -1,28 +1,19 @@
 #include "ordenacao.h"
 
-
-
 // Recebe vetor v[p..r] com p < r. Rearranja os
-
 // elementos do vetor e devolve j em p..r tal que
-
 // v[p..j-1] <= v[j] < v[j+1..r].
 
 
 
 long Particao(unsigned long *v, long p, long r, unsigned long *mov, unsigned long *comp)
 {
-
 	//c = v[p]
 	(*mov)++;
 
    	unsigned long c = v[p], i = p, j = r, t;
 
-
-
    	while (1) {
-
-
   		//(v[i] <= c)
       	(*comp)++;
 
@@ -31,10 +22,7 @@ long Particao(unsigned long *v, long p, long r, unsigned long *mov, unsigned lon
        		//(v[i] <= c)
        		(*comp)++;
 	       	++i;
-
     	}
-
-
 		//(c < v[j])
 		(*comp)++;
 
@@ -47,12 +35,9 @@ long Particao(unsigned long *v, long p, long r, unsigned long *mov, unsigned lon
 
 
       	if (i >= j) break;
-
-
       	//mov+3
       	(*mov)++; (*mov)++; (*mov)++;
        	t = v[i]; v[i] = v[j]; v[j] = t;
-
       	++i; --j;
 
    	}
@@ -60,7 +45,6 @@ long Particao(unsigned long *v, long p, long r, unsigned long *mov, unsigned lon
    	//mov+3
   	(*mov)++; (*mov)++; (*mov)++;
    	t = v[p]; v[p] = v[j]; v[j] = t;
-
 
    	return j;
 }
@@ -80,19 +64,14 @@ void QuickSortRecursivo(unsigned long *v, long p, long r, unsigned long *mov, un
    long j;
 
    while (p < r) {
-
       j = Particao (v, p, r, mov, comp);
 
       if (j - p < r - j) {
-
          QuickSortRecursivo (v, p, j-1, mov, comp);
-
          p = j + 1;
 
       } else {
-
          QuickSortRecursivo (v, j+1, r, mov, comp);
-
          r = j - 1;
 
       }
