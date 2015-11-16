@@ -51,7 +51,6 @@ void Heap(unsigned long *v, long root, long bottom, unsigned long *mov, unsigned
       		v[maxChild] = temp;
 
       		root = maxChild;
-
     	}
 
     	else
@@ -63,10 +62,6 @@ void Heap(unsigned long *v, long root, long bottom, unsigned long *mov, unsigned
   	}
 
 }
-
-
-
-
 
 void HeapSort(unsigned long *v, unsigned long n, unsigned long *mov, unsigned long *comp)
 {
